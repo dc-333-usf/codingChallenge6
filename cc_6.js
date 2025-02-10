@@ -16,7 +16,7 @@ console.log(calculateSalesTax(500, 0.1));
 
 //Task 3: Arrow function. Employee bonus calculation scenario.
 const calculateBonus = (salary, performanceRating) => { //create arrow function
-    let bonus; //declare bonus with no value
+    let bonus; //declare bonus as undefined
 
     if (performanceRating === "Excellent") {
         bonus = salary * 0.2; //set condition for performance, then calculate bonus and update bonus variable
@@ -32,9 +32,9 @@ const calculateBonus = (salary, performanceRating) => { //create arrow function
 console.log(calculateBonus(5000, "Excellent"));
 console.log(calculateBonus(7000, "Good")); //test the function with test data
 
-//Task 4: Parameters and arguments. Subscription pricing model
+//Task 4: Parameters and arguments. Subscription pricing model scenario.
 function calculateSubscriptionCost(plan, months, discount = 0) { //create the function to calculate with the parameters, setting the default discount to 0
-    let cost; //let cost be nothing
+    let cost; //let cost be undefined
     if (plan === "Basic") {
         cost = 10 * months * ((100 - discount) / 100); //if plan is basic, 10 dollars per month. multipled by the months, multiplied by the discount percent as a whole number
     }
@@ -49,7 +49,7 @@ function calculateSubscriptionCost(plan, months, discount = 0) { //create the fu
 console.log(calculateSubscriptionCost("Basic", 6, 10));
 console.log(calculateSubscriptionCost("Premium", 12, 0)); //test cost with test data
 
-//Task 5: Returning values. Currency conversion scenario
+//Task 5: Returning values. Currency conversion scenario.
 function convertCurrency(amount, exchangeRate) { //declare function
     let amnt = amount * exchangeRate; //write simple multiplication calculation
     return amnt; //return amount
@@ -64,3 +64,15 @@ const applyBulkDiscount = (orders, discountFunction) => { //create the higher or
 };
 let discountedOrders = applyBulkDiscount(orders, amount => amount > 500 ? amount * 0.9 : amount); //use the code from the assignment to check if it only applies to orders over 500
 console.log(discountedOrders); //log the new array
+
+//Task 7: Closures. Business expense tracker scenario.
+function createExpenseTracker() { //create function
+    let trackedExpenses = 0; //let tracked expenses start at 0 so we can add to it later
+    return function(expense) { //make our current function return another function with parameter expense
+        trackedExpenses += expense; //take tracked expense variable (was 0) and add expenses
+        return trackedExpenses; //return the updated tracked expenses variable
+    };
+}
+let tracker = createExpenseTracker(); //let tracker call this function inside the other function to add to tracked expenses
+console.log(tracker(200)); //tracker gets updated to 200
+console.log(tracker(150)); //tracker is now 350 since the other value is already stored

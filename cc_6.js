@@ -13,3 +13,21 @@ let calculateSalesTax = function(amount, taxRate) { //declare function using exp
 }
 console.log(calculateSalesTax(100, 0.07));
 console.log(calculateSalesTax(500, 0.1));
+
+//Task 3: Arrow function. Employee bonus calculation scenario.
+const calculateBonus = (salary, performanceRating) => {
+    let bonus;
+
+    if (performanceRating === "Excellent") {
+        bonus = salary * 0.2;
+    }
+    else if (performanceRating === "Good") {
+        bonus = salary * 0.1;
+    }
+    else {
+        bonus = salary * 0.05;
+    }
+    return bonus;
+};
+console.log(calculateBonus(5000, "Excellent"));
+console.log(calculateBonus(7000, "Good"));

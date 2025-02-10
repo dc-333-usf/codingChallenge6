@@ -48,3 +48,11 @@ function calculateSubscriptionCost(plan, months, discount = 0) { //create the fu
 };
 console.log(calculateSubscriptionCost("Basic", 6, 10));
 console.log(calculateSubscriptionCost("Premium", 12, 0)); //test cost with test data
+
+//Task 5: Returning values. Currency conversion scenario
+function convertCurrency(amount, exchangeRate) { //declare function
+    let amnt = amount * exchangeRate; //write simple multiplication calculation
+    return amnt; //return amount
+}
+console.log(convertCurrency(100, 1.1));
+console.log(convertCurrency(250, 0.85)); //test with data

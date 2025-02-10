@@ -76,3 +76,13 @@ function createExpenseTracker() { //create function
 let tracker = createExpenseTracker(); //let tracker call this function inside the other function to add to tracked expenses
 console.log(tracker(200)); //tracker gets updated to 200
 console.log(tracker(150)); //tracker is now 350 since the other value is already stored
+
+//Task 8: Recursion in Javascript. Employee Promotion Evaluation scenario.
+function calculateYearsToPromotion(employeeLevel) { //create the function
+    if (employeeLevel >= 10) { //create statement to check if employee is already at or above level 10
+        return 0;
+    }
+    let years = 2 + calculateYearsToPromotion(employeeLevel + 1); //recursive part of the function, as long as the level is below 10, it continues to execute. We add 2 to years and one to employee level each time, since each level takes 2 years
+    return years; //return the amount of years calculated
+}
+console.log(calculateYearsToPromotion(7)); //log to console the amount of years
